@@ -6,10 +6,10 @@ public class Label {
 
 	public JLabel setLabel(String type, String message, int x, int y) {
 		JLabel label = new JLabel(message);
-		if (type == "msg") {
+		if (type.equals("msg")) {
 			label.setSize(150, 25);
 		}
-		if (type == "time") {
+		if (type.equals("time")) {
 			label.setSize(80, 25);
 		}
 		label.setLocation(x, y);

@@ -38,6 +38,7 @@ public class Frame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			timer.stop();
+			String errBox = "ErrorBox";
 			try {
 				logic = new Logic(textField.getText());
 				label1.setText(logic.calculateTimePauseInclusive(8));
@@ -48,14 +49,14 @@ public class Frame {
 				ErrorBox.infoBox(
 						ex1.getMessage()
 								+ " Möglich sind Zeiteingaben von 6 bis 20 Uhr! Das Eingabeformat ist (HH:MM)!",
-						"ErrorBox");
+						errBox);
 			} catch (StartTimeInTheFutureException ex2) {
 				clearLabels();
-				ErrorBox.infoBox(ex2.getMessage() + " Das Eingabeformat ist (HH:MM)!", "ErrorBox");
+				ErrorBox.infoBox(ex2.getMessage() + " Das Eingabeformat ist (HH:MM)!", errBox);
 			} catch (TimeFailureException ex3) {
 				String[] message = ex3.getMessage().split("-");
 				ErrorBox.infoBox("Hinweis! Die " + message[0] + " Stunden können um " + message[1]
-						+ " Stunden nicht erreicht werden!", "ErrorBox");
+						+ " Stunden nicht erreicht werden!", errBox);
 				if (message[0].compareTo("8") == 0) {
 					label1.setText(message[2]);
 				}
@@ -88,8 +89,7 @@ public class Frame {
 		frame.setTitle("Arbeitszeitrechner");
 		frame.setSize(300, 300);
 		frame.setResizable(false);
-		frame.setLocation((int) ((d.getWidth() - frame.getWidth())) / 2,
-				(int) ((d.getHeight() - frame.getHeight()) / 2));
+		frame.setLocation((int) (d.getWidth() - frame.getWidth()) / 2, (int) ((d.getHeight() - frame.getHeight()) / 2));
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		return frame;

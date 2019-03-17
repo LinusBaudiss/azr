@@ -25,8 +25,8 @@ public class Zustand5 extends Zustand {
 		case '4':
 		case '5':
 			return Zustand6.getZustand();
+		default:
+			return ZustandFehler.getZustand();
 		}
-		return ZustandFehler.getZustand();
 	}
-
 }

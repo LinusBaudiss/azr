@@ -23,8 +23,8 @@ public class Zustand1 extends Zustand {
 		case '8':
 		case '9':
 			return Zustand4.getZustand();
+		default:
+			return ZustandFehler.getZustand();
 		}
-		return ZustandFehler.getZustand();
 	}
-
 }

@@ -41,10 +41,7 @@ public class Logic {
 		int inputMinutes = timeStringToMinutes(time);
 		long actualTime = System.currentTimeMillis();
 		int actualMinutes = (int) (actualTime / 1000 / 60 / 60 % 24 + 1) * 60 + (int) (actualTime / 1000 / 60 % 60);
-		if (actualMinutes < inputMinutes) {
-			return true;
-		}
-		return false;
+		return actualMinutes < inputMinutes;
 	}
 
 	public String updateFlexTime(int h, int m) {
@@ -114,11 +111,7 @@ public class Logic {
 	}
 
 	public boolean isTimeUp() {
-		if (minutesPresent >= 525) // Schon 8:45h anwesend?
-		{
-			return true;
-		}
-		return false;
+		return minutesPresent >= 525; // Schon 8:45h anwesend?
 	}
 
 	public String getTimeString(int h, int min) {
