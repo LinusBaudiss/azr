@@ -68,10 +68,19 @@ public class Frame {
 
 	private ActionListener timeListener = new ActionListener() {
 
+		/*
+		 * Diese Methode beinhaltet einen Bug.
+		 * Dies liegt an dem Wechsel zwischen Sommer- und Winterzeit.
+		 * Hotfix:
+		 * Wenn Winterzeit ist muss folgende Code Zeile benutzt werden
+		 * int actualHours = (int) (actualTime / 1000 / 60 / 60 % 24 + 1);
+		 * Bei Sommerzeit wiederum
+		 * int actualHours = (int) (actualTime / 1000 / 60 / 60 % 24 + 2);
+		 */ 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			actualTime = System.currentTimeMillis();
-			int actualHours = (int) (actualTime / 1000 / 60 / 60 % 24 + 1);
+			int actualHours = (int) (actualTime / 1000 / 60 / 60 % 24 + 2);
 			int actualMinutes = (int) (actualTime / 1000 / 60 % 60);
 			label3.setText(logic.updateFlexTime(actualHours, actualMinutes));
 		}
