@@ -67,7 +67,6 @@ public class Frame {
 	};
 
 	private ActionListener timeListener = new ActionListener() {
-
 		/*
 		 * Diese Methode beinhaltet einen Bug.
 		 * Dies liegt an dem Wechsel zwischen Sommer- und Winterzeit.
